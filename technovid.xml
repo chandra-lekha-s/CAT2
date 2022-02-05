@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="technovid.xsl"?>
+<christ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="technovid.xsd">
+
+
+    <computer-science>
+        <stu-name>Amir</stu-name>
+        <stu-university>Christ university</stu-university>
+        <stu-phone>9632587412</stu-phone>
+        <stu-email>amir@christuniversity.in</stu-email>
+    </computer-science>
+
+    <computer-science>
+        <stu-name>Salmaan</stu-name>
+        <stu-university>Christ university</stu-university>
+        <stu-phone>8569741258</stu-phone>
+        <stu-email>salmaan@christuniversity.in</stu-email>
+    </computer-science>
+
+    <computer-science>
+        <stu-name>Sharuk</stu-name>
+        <stu-university>Christ university</stu-university>
+        <stu-phone>9856321475</stu-phone>
+        <stu-email>sharuk@christuniversity.in</stu-email>
+    </computer-science>
+</christ>
