@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JASON</title>
+    <!-- <script src="anjular.js"></script> -->
+    <!-- <script src="jsonJS.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+        <script src="jsonJS.js"></script>
+</head>
+<body ng-app="emp_details">
+    <div ng-controller="emp_ctrl">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>EMAIL</th>
+                <th>ADDRESS</th>
+                <th>SALARY</th>
+                <th>CONTACT</th>
+                <th>DESIGNATION</th>
+                <th>SERVICE</th>
+                <th>TEAM</th>
+            </tr>
+            <tbody >
+                
+                <tr ng-repeat="e in emp">
+                    <!-- <td>{{e}}</td> -->
+                    <td>{{e.id}}</td>
+                    <td>{{e.name}}</td>
+                    <td>{{e.gender}}</td>
+                    <td>{{e.email}}</td>
+                    <td>{{e.address}}</td>
+                    <td>{{e.salary}}</td>
+                    <td>{{e.contact}}</td>
+                    <td>{{e.designation}}</td>
+                    <td>{{e.service}}</td>
+                    <td>{{e.team}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+
+</body>
+</html>
