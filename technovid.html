@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technovid-registration</title>
+</head>
+<body style="background-image: linear-gradient( to bottom right, #084bdb,#4f82f1,#8faceb,#4f82f1,#084bdb);">
+    <h1 style="margin:5% 30% 0;color: white;">TECHNOVID REGISTRATION FORM</h1>
+    <!-- <div style="padding: 10%; background-color: rgba(241, 241, 235, 0.829);"> -->
+        
+
+        <form onsubmit="return validate()" style="margin:5% calc((70%)/2) 10% ;padding: 3%;width: 25%; background-color: rgba(241, 241, 235, 0.829);">
+            <input type="text" id="name" onkeydown="return check_name()" placeholder="Name">
+            <br><span></span><br>
+            <input type="text" id="email" onkeyup="return mail()" placeholder="Email" disabled>
+            <br><span></span><br>
+            <input type="text" id="branch" onkeyup="return v_branch()" placeholder="Branch" disabled>
+            <br><span></span><br>
+            <input type="text" id="university" onkeyup="return v_university()" placeholder="College or university name" disabled>
+            <br><span></span><br>
+            <input type="text" id="state" onkeyup="return v_state()" placeholder="State" disabled>
+            <br><span></span><br>
+            <input type="text" id="address" placeholder="Address" onkeyup="return v_address()" disabled>
+            <br><span></span><br>
+            <input type="text" id="age" onkeyup="return v_age()" placeholder="Age" disabled>
+            <br><span></span><br>
+            <input type="text" id="phno" onkeydown="return check_phno()" placeholder="Contact number" disabled>
+            <br><span></span><br>
+            <input type="text" id="username" onkeyup="return v_username()" placeholder="Username" disabled>
+            <br><span></span><br>
+            <input type="password" id="password" onkeyup="return pass()" placeholder="Password" disabled>
+            <br><span></span><br>
+
+            <input type="submit" value="Register" disabled>
+        </form>
+    <!-- </div> -->
+
+    <script>
+        
+        var span=document.getElementsByTagName('span');
+        var inputs=document.getElementsByTagName('input');
+        var flag=1;
+
+        function check_name(){
+            var letter = event.which;
+            var x=document.getElementById("name").value;
+            var y=x.length;
+            if(letter > 64 && letter < 91 || letter==8 ||letter==32)
+            { if(x.charAt(y-1)==' ' && letter==32)
+              {   return false;}
+              inputs[1].disabled=false;
+              return true;
+              
+            }
+            else{
+              inputs[1].disabled=true;
+              return false;
+            }
+        }
+        
+        function mail(){
+            // console.log(flag);
+            var email=document.getElementById('email').value.trim();
+            const re_mail=/^([A-Za-z\.]{3,})@([a-zA-Z]{5,})(university|college)\.((in|com))$/;
+            // if(flag==1)
+            // {
+                if(re_mail.test(email)){
+                span[1].innerText="";
+                inputs[1].style.border="1px solid black";
+                inputs[2].disabled=false;
+                // flag=2;
+            }else{
+                span[1].innerText="Please enter a official email";
+                span[1].style.color="red";
+                inputs[1].style.border="3px solid red";
+                inputs[2].disabled=true;
+                // flag=1;
+            }
+        // }else
+        //     inputs[1].value='';
+        }
+
+        function v_branch(){
+          // var letter = event.which;
+            var x=document.getElementById('branch').value;
+            var y=x.length;
+            // if (flag==2)
+            //     {
+                    if(x.length > 5 && x.length <60){   
+                    if(x.charAt(y-1)==' ')
+                        {   return false;}
+                    span[2].innerText="";
+                    inputs[2].style.border="1px solid black";
+                    inputs[3].disabled=false;
+                    return true;
+                    }
+                
+                else{
+                    span[2].innerText="Please enter a valid branch name";
+                    span[2].style.color="red";
+                    inputs[2].style.border="3px solid red";
+                    inputs[3].disabled=true;
+                    return false;
+                }
+            // }
+            // else inputs[2].value='';
+
+        }
+        function v_university(){
+          // var letter = event.which;
+          var x=document.getElementById('university').value;
+            var y=x.length;
+            // if (flag==2)
+            //     {
+                    if(x.length > 8 && x.length <60){   
+                    if(x.charAt(y-1)==' ' )
+                        {   return false;}
+                    span[3].innerText="";
+                    inputs[3].style.border="1px solid black";
+                    inputs[4].disabled=false;
+                    return true;
+                    }
+                
+                else{
+                    span[3].innerText="Please enter a valid university name";
+                    span[3].style.color="red";
+                    inputs[3].style.border="3px solid red";
+                    inputs[4].disabled=true;
+                    return false;
+                }
+        }
+
+        function v_state(){
+          // var letter = event.which;
+          var x=document.getElementById('state').value;
+            var y=x.length;
+            // if (flag==2)
+            //     {
+                    if(x.length > 2 && x.length <60){   
+                    if(x.charAt(y-1)==' ')
+                        {   return false;}
+                    span[4].innerText="";
+                    inputs[4].style.border="1px solid black";
+                    inputs[5].disabled=false;
+                    return true;
+                    }
+                
+                else{
+                    span[4].innerText="Please enter a valid state name";
+                    span[4].style.color="red";
+                    inputs[4].style.border="3px solid red";
+                    inputs[5].disabled=true;
+                    return false;
+                }
+        }
+
+        function v_address(){
+          // var letter = event.which;
+          var x=document.getElementById('address').value;
+            var y=x.length;
+            // if (flag==2)
+            //     {
+                    if(x.length > 8 && x.length <60){   
+                    if(x.charAt(y-1)==' ')
+                        {   return false;}
+                    span[5].innerText="";
+                    inputs[5].style.border="1px solid black";
+                    inputs[6].disabled=false;
+                    return true;
+                    }
+                
+                else{
+                    span[5].innerText="Please enter a valid address";
+                    span[5].style.color="red";
+                    inputs[5].style.border="3px solid red";
+                    inputs[6].disabled=true;
+                    return false;
+                }
+        }
+
+        function v_age(){
+            var age=document.getElementById('age').value;
+            if (age>0 && age.length<3){
+                span[6].innerText="";
+                inputs[6].style.border="1px solid black";
+                inputs[7].disabled=false;
+                return true;
+            }
+            else{
+                span[6].innerText="Please enter a valid age";
+                span[6].style.color="red";
+                inputs[6].style.border="3px solid red";
+                inputs[7].disabled=true;
+                return false;}
+            
+        }
+
+        function check_phno(){
+            var num = event.which;
+            var y=inputs[7].value.length;
+        console.log(y);
+        if( num > 95 && num < 106 || num==8 || num==13 || num==32|| num==144)
+            {if(y<10){
+              inputs[8].disabled=false;
+                return true;
+            }
+            else
+                return false;
+            }
+        else{
+          inputs[8].disabled=true;
+          return false;
+        }
+            }
+
+        function v_username(){
+            var x=document.getElementById('username').value.trim();
+            if(x.length==1){
+                var y=x[0].toUpperCase();
+                inputs[8].value=y;
+            }
+            if(x.length > 5 && x.length <60){   
+                    if(x.charAt(y-1)==' ')
+                        {   return false;}
+                    span[8].innerText="";
+                    inputs[8].style.border="1px solid black";
+                    inputs[9].disabled=false;
+                    return true;
+                    }
+                
+            else{
+                    span[8].innerText="Please enter a valid username";
+                    span[8].style.color="red";
+                    inputs[8].style.border="3px solid red";
+                    inputs[9].disabled=true;
+                    return false;
+            }
+        }
+
+        function pass(){
+          var letter = event.which;
+          var flag=0;
+          const re_pass1=/(?=[a-z])/gm;
+          const re_pass2=/(?=[A-Z])/gm;
+          const re_pass3=/(?=[0-9])/gm;
+          const re_pass4=/(?=.[`~!@#$%^&*()_+=-?.|>,<';":])/gm;
+          // var x=document.getElementById("password1").value+String.fromCharCode(letter);
+          var x=document.getElementById("password").value;
+          span[9].innerText="";
+
+          if(letter==32){
+            var z=inputs[1].value.trim();
+            inputs[9].value=z;
+          }
+
+          if(x.length>7 && x.length<16 ){
+            flag+=1;
+          }
+          if(x.length>15){
+            flag+=10;
+          }
+          if(x.length<4){
+            flag-=10;
+          }
+          if(re_pass1.test(x)){
+            flag+=1;
+          }
+          if(re_pass2.test(x)){
+            flag+=1;
+          }
+          if(re_pass3.test(x)){
+            flag+=1;
+          }
+          if(re_pass4.test(x)){
+            flag+=1;
+          }
+
+          if(flag>0 && flag<4){
+            span[9].innerText="Weak password.";
+          }else if(flag>3 && flag<5){
+            span[9].innerText="Average password.";
+            span[9].style.color="orange";
+          }else if(flag>10){
+            span[9].innerText="Password too long.";
+            span[9].style.color="red";
+          }else if(flag<0){
+            span[9].innerText="Password too short.";
+            span[9].style.color="red";
+          }else{
+            span[9].innerText="Strong password.";
+            span[9].style.color="green";
+            inputs[10].disabled=false;
+          }
+        }
+
+        function validate(){
+            var phno=document.getElementById('phno').value;
+            var email=document.getElementById('email').value;
+            var password=document.getElementById('password').value;
+            var username=document.getElementById('username').value;
+            document.cookie="username="+username+"; expires=Tue,22 Feb 2022 10:00:00 UTC; path=/;";
+            document.cookie="password="+password+"; expires=Tue,22 Feb 2022 10:00:00 UTC; path=/;";
+            localStorage.setItem("phno",phno);
+            localStorage.setItem("email",email);
+            alert("Register successfully!!");
+        }
+
+
+    </script>
+</body>
+</html>
